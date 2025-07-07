@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Dashboard - Tabbed View</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .tablink {
+            background-color: #f1f1f1;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+        .tablink:hover { background-color: #ddd; }
+        .tablink.active { background-color: #ccc; }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        .tab-bar {
+            overflow-x: auto;
+            white-space: nowrap;
+            background-color: #f1f1f1;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tab-bar">
+    <button class="tablink active" onclick="openTab(event, 'What_size_of_event_is_best_')">What size of event is best?</button>
+<button class="tablink " onclick="openTab(event, 'When_would_you_most_likely_attend___mult')">When would you most likely attend? (multi-select)</button>
+<button class="tablink " onclick="openTab(event, 'Which_social_activities_would_help_you_c')">Which social activities would help you connect with others? (multi-select)</button>
+<button class="tablink " onclick="openTab(event, 'Outside_of_social_events_such_as_happy_h')">Outside of social events such as happy hours or those listed in the question above, which professional activities do you see beneficial towards building relationships, trust, and psychological saf...</button>
+<button class="tablink " onclick="openTab(event, 'At_which_locations_are_you_most_likely_t')">At which locations are you most likely to attend an event? (multi-select)</button>
+<button class="tablink " onclick="openTab(event, 'Recognition_you_are_most_comfortable_wit')">Recognition you are most comfortable with: (Choose all that apply) (multi-select)</button>
+
+</div>
+
+
+    <div id="What_size_of_event_is_best_" class="tabcontent" style="display: block;">
+        <iframe src="survey_dashboard/What_size_of_event_is_best_.html"></iframe>
+    </div>
+    
+    <div id="When_would_you_most_likely_attend___mult" class="tabcontent" style="display: none;">
+        <iframe src="survey_dashboard/When_would_you_most_likely_attend___mult.html"></iframe>
+    </div>
+    
+    <div id="Which_social_activities_would_help_you_c" class="tabcontent" style="display: none;">
+        <iframe src="survey_dashboard/Which_social_activities_would_help_you_c.html"></iframe>
+    </div>
+    
+    <div id="Outside_of_social_events_such_as_happy_h" class="tabcontent" style="display: none;">
+        <iframe src="survey_dashboard/Outside_of_social_events_such_as_happy_h.html"></iframe>
+    </div>
+    
+    <div id="At_which_locations_are_you_most_likely_t" class="tabcontent" style="display: none;">
+        <iframe src="survey_dashboard/At_which_locations_are_you_most_likely_t.html"></iframe>
+    </div>
+    
+    <div id="Recognition_you_are_most_comfortable_wit" class="tabcontent" style="display: none;">
+        <iframe src="survey_dashboard/Recognition_you_are_most_comfortable_wit.html"></iframe>
+    </div>
+    
+
+<script>
+function openTab(evt, tabId) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    document.getElementById(tabId).style.display = "block";
+    evt.currentTarget.classList.add("active");
+}
+</script>
+
+</body>
+</html>
